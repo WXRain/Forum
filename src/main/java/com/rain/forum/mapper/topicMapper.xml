@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="com.rain.forum.dao.TopicDAO">
+ 	<insert id="saveTopic" parameterType="com.rain.forum.entity.Topic">
+ 		insert into topic (id, userId, sectionId, clickCount, replyCount,
+ 		topicName, topicText, releaseDate, lastReplyDate, isTop, isFine) values 
+ 		(#{id}, #{userId}, #{sectionId}, #{clickCount}, #{replyCount}, #{topicName},
+ 		#{topicText}, #{releaseDate}, #{lastReplyDate}, #{isTop}, #{isFine})
+ 	</insert>
+ 	<select id="findAllTopic" resultType="com.rain.forum.entity.Topic">
+ 		select id, userId, sectionId, clickCount, replyCount, topicName,
+ 		topicText, releaseDate, lastReplyDate, isTop, isFine from topic
+ 	</select>
+ 	<select id="findTopicById" parameterType="int" resultType="com.rain.forum.entity.Topic">
+ 		select id, userId, sectionId, clickCount, replyCount, topicName,
+ 		topicText, releaseDate, lastReplyDate, isTop, isFine from topic
+ 		where id=#{id}
+ 	</select>
+ 	<update id="updateTopic" parameterType="com.rain.forum.entity.Topic">
+ 		update topic set userId=#{userId}, sectionId=#{sectionId}, clickCount=#{clickCount},
+ 		replyCount=#{replyCount}, topicName=#{topicName}, topicText=#{topicText}, 
+ 		releaseDate=#{releaseDate}, lastReplyDate=#{lastReplyDate}, isTop=#{isTop}, isFine=#{isFine}
+ 		where id=#{id}
+ 	</update>
+ 	<delete id="deleteTopic" parameterType="int">
+ 		delete from topic where id=#{id}
+ 	</delete>
+ 	<select id="findTopicByUserId" resultType="com.rain.forum.entity.Topic" parameterType="int">
+ 		select id, userId, sectionId, clickCount, replyCount, topicName,
+ 		topicText, releaseDate, lastReplyDate, isTop, isFine from topic where userId=#{userId}
+ 	</select>
+ </mapper>

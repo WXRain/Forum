@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.rain.forum.dao.UserDAO">
+	<insert id="saveUser" parameterType="com.rain.forum.entity.User">
+		insert into user (id, username, password, name, sex, level, exp, isManager) values 
+		(#{id}, #{username}, #{password}, #{name}, #{sex}, #{level}, #{exp}, #{isManager})
+	</insert>
+    <select id="findUserById" parameterType="int" resultType="com.rain.forum.entity.User">
+    	select id, username, password, name, sex, level, exp, isManager from user where id=#{id}
+    </select>
+	<select id="findAllUser" resultType="com.rain.forum.entity.User">
+		select id, username, password, name, sex, level, exp, isManager from user
+	</select>
+	<update id="updateUser" parameterType="com.rain.forum.entity.User">
+		update user set username=#{username}, password=#{password}, name=#{name}, sex=#{sex}, 
+		level=#{level}, exp=#{exp}, isManager=#{isManager} where id=#{id}
+	</update>
+	<delete id="deleteUser" parameterType="int">
+		delete from user where id=#{id}
+	</delete>
+	<select id="findUserByName" parameterType="string" resultType="com.rain.forum.entity.User">
+		select id, username, password, name, sex, level, exp, isManager from user where username=#{username}
+	</select>
+</mapper>
