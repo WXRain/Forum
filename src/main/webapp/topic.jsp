@@ -15,5 +15,6 @@
 		Cookie cookie = new Cookie("topicId", topicId);
 		response.addCookie(cookie);
 	%>
+	<center><h1 id="title"></h1></center>
 </body>
 </html>

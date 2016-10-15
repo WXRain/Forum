@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="script/jquery.min.js"></script>
 	<script type="text/javascript" src="script/cookie_util.js"></script>
 	<script type="text/javascript" src="script/login.js"></script>
-	
+	<script type="text/javascript" src="script/jquerySession.js"></script>
 </head>
 <body>
 	<table>

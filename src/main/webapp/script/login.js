@@ -23,8 +23,10 @@ function login() {
 			if(result.state == SUCCESS){
 				var user = result.data;
 				addCookie('username', user.username);
-				addCookie("userId", user.id);
-				addCookie("name", user.name);
+				addCookie('userId', user.id);
+				addCookie('name', user.name);
+				$.session.set('userId', user.id);
+				$.session.set('isManager', user.isManager);
 				alert("欢迎您," + getCookie('name'));
 				window.location.href="user.jsp";
 			}else{

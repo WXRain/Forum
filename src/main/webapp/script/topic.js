@@ -10,8 +10,9 @@ function init(){
 		dataType : 'JSON',
 		data : {'topicId' : topicId},
 		success : function(result){
-			console.log(result.data);
+			$('#title').append(result.topicName);
 		}
 	});
+	
 }
 
